@@ -1,0 +1,39 @@
+24.4) depth: Between the bowl and the table underneath it. Between the spoon
+ and the table beneath it. Between the fruit and the milk underneath them.
+
+surface orientation: The rim of the bowl. 
+
+reflectance: Between the different fruits in the milk. Between the grains in
+the wood. Between the bubbles and the milk.
+
+illumination: The shadow from the bowl. The shadow from the spoon. The shadows
+fromt he fruit.
+
+24.5) 
+
+a) d = 2 * (512 pixels/0.1 m) * 0.16 m * (0.5 m / 16 m)
+    51.2 pixels = 51 pixels
+
+b) 51 = 2 * (512 pixels/0.1 m) * 0.16 m * (0.5 m / Z) 
+   16.06 m
+
+   52 = 2 * (512 pixels/0.1 m) * 0.16 m * (0.5 m / Z)
+   15.75 m
+
+	16.06 m - 15.75 m = 0.31 m
+
+c) 1 = 2 * (512 pixels/0.1 m) * 0.16 m * (0.5 m / Z)
+	819.2 m
+
+24.6) 
+
+a) False
+
+b) True
+
+c) False
+
+d) True
+
+24.7) From lighting you would be able to tell, B is closer than C, and A. From
+depth you would be able to see that B, C, and A are closer than D, and E.

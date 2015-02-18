@@ -1,0 +1,36 @@
+18.15) The median is the value from statistics that would give the lowest
+value fo L1. 
+
+(4,6,7,7,8,11,100) 
+
+L1 = |7 - 4| + |7 - 6| + |7 - 7| + |7 - 7| + |7 - 8| + |7 - 11| + |7 - 100| = 102
+
+the average is the value from statistics that would give the lowest value for 
+L2.
+
+L2 = (7 + 6 + 8 + 4 + 7 + 11 + 100) / 7 = 20.4
+
+18.16) a) x(2/1) + x(2/2) - 2ax1 - 2bx2 + (a^2 + b^2 -r^2) = 0
+
+			weights w = (2a, 2b, 1, 1)
+
+b) cx(2/1) + dx(2/2) - 2acx1 - 2bdx2 + (a^2c + b^2d -1) = 0
+          
+            weights w = (2ac, 2bd, c, d, 0)
+
+18.18) 
+
+
+
+18.19) 
+
+x1 - - - - - - - >
+ \                  (x1 && !x2) - - - - \
+  \   /- - - - ->                        \ - - ->  
+   \ /                                            (x1 && !x2) || (!x1 && x2)
+   / \                                     - - -> 
+  /   - - - - - >                         /
+x2 - - - - -  - >   (!x1 && x2) - - - - /
+
+
+

@@ -1,0 +1,53 @@
+18.3) The algorith may not return the "correct" tree, but it will return a
+tree that is logically equivalent, if the algorithm genereates all possible
+combinations of input attributes. The actual form of the tree may differ
+from the correct tree, but still be equivalent because there are many 
+different ways to represent the same function. 
+
+18.4) a) If α is returned, the absolute error is:
+
+E = p(1 − α) + nα = α(n − p) + p
+= n when α = 1.
+= p when α = 0.
+
+Thus, the error is minimized by setting α = 1 if p > n and 0 otherwise.
+
+b) The sum of squared error is:
+E = p(1 − α)^2 + nα^2
+
+Its derivative is:
+dE/dα = 2αn − 2p(1 − α) = 2α(p + n) − 2p.
+
+The derivative has a zero at α = p/(p + n).
+Now, we can prove that this is a minimum by evaluating the second derivative, 2(p + n), to see that the point of interest is in fact a minimum of E, 
+the sum of squared errors equation.
+
+18.6) + : x4, x5
+	  - : x1, x2, x3
+
+      A2
+    0    +: x4, x5
+		 -: x3
+
+      A2
+	0	A1
+       0  1
+
+18.7) 
+
+a)                               Root
+                        0                 1
+                  0       1            0      1
+               0    1    0 1         0  1    0  1
+			   0    1    1 0         1  0    0   1
+
+
+b)
+
+
+18.11) For each run, the majority label of the training data will be different 
+from the label of the validation data instance. For example, if the 
+validation data instance is negative, the majority label of the training 
+data (100 positives and 99 negatives) will be positive. Therefore, the 
+accuracy will always be 0% for all runs.
+

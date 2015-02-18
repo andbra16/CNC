@@ -1,0 +1,24 @@
+For project 1, I first familiarized myself with weka. I learned how to read 
+the histograms in the preprocess and what they mean. The histograms take
+the attributes and display how many times they met the testing condition.
+(Ie. for weather, how many days they played when it was sunny, overcast, or
+rainy)
+
+After I understood the general information, I moved on to using the J48
+algorithm on data. The J48 algorithm builds decision trees from a set of
+training data using the concept of entropy. I used this algorithm on the 
+weather set, and later on the mnist data, and combined mnist data of two
+linked data sets. I lowered the confidence factor, for these to prune the 
+trees as well.
+
+From running these experiments, I learned the difference between the test
+data set and the training data set. The test data set is used to build the
+decision tree in J48 and the training set is run on that tree and is used for
+the machine learning. Cross-validation is the shuffling of the test data and
+the training data to analyze the training set and valdidate the test set.
+
+The overfitting problem is when you try to apply too many attributes to 
+your decision tree. For instance, if you have data that seems to correlate
+correctly, but isn't causal for your decisions. In such a case, you shouldn't
+use that data set, because it truly isn't a determination for end result.
+
