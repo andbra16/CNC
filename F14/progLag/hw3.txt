@@ -1,0 +1,92 @@
+2.8)
+a)														Expr
+
+											Expr          +		Term
+									
+								Expr	     +     Term         Factor
+							
+						Expr     +   Term          Factor         4
+			
+				    	Term	     Factor			  4
+
+						Factor        4
+
+						 5
+
+
+b)															Expr
+
+													Expr     +		Term
+
+											Expr    +	 Term		Factor
+
+									Expr	+   Term     Factor      3
+
+							Expr     +  Term	Factor     5
+
+						    Term        Factor    5
+
+							Factor 		  5
+
+							 5
+
+2.13
+
+IfStatement -> if (Expression) Statement | 
+			   if (Expression Statement else Statement
+Statement   -> Assignment | IfStatement | Block
+Block       -> {Statements}
+Statements  -> Statements Statment | Statement | fi
+
+I added in the fi command to statements to show that the if statment is closed
+when the fi is put in. Therefore, you can tell which if statement the else belongs to because each if statement needs to be closed by a fi.
+
+2.16
+
+Expr -----> Integer ----->
+              + <-----|        
+              - <-----|      
+              * <-----|
+              / <-----|
+              % <-----|
+             ** <-----|
+                      |
+           Expr <-----|  
+
+3.1
+
+Identifier -> Letter | Term
+Term	   -> Letter | Digit | Letter Term | Digit Term
+Letter     -> A|...|Z|a|...|z
+Digit	   -> 0|...|9
+
+Float   -> Integer . Integer
+Integer -> 0|...|9 | 0|...|9 Integer
+
+3.2
+
+Identifier -> Letter | Term Letter
+Term	   -> Letter | Digit | Term Letter | Term Digit
+Letter	   -> A|...|Z|a|...|z
+Digit 	   -> 0|...|9
+
+Float   -> Integer . Integer
+Integer -> 0|...|9 | Integer 0|...|9
+
+3.3
+
+Digit ---> Letter    ---> End 
+ ^	   |	  ^ 	  |
+ | <---|	  |   <---|
+			  |		  |
+              | <--- Digit
+
+3.4
+
+s -> x y | Empty
+x -> a x | a | x y
+y -> b y | b | x y
+
+This language is not possible to define with a regular grammar, because regular grammars cannot use {} to denote 0 or more occurences. Therefore it is impossible for regular grammars to balance parentheses, where all the left parentheses precede all the right parentheses.
+ 
+

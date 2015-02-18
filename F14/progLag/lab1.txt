@@ -1,0 +1,7 @@
+Brandon Anderson
+
+The first missing Lexeme is the left Parentheses. It should be inserted at line number 90.
+
+case '(': ch = nextChar();
+	return Token.LeftParen;
+

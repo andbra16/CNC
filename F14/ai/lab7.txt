@@ -1,0 +1,412 @@
+st login: Tue Nov 18 10:06:54 on ttys000
+andbra16@ccm-2610-c3:~$ ssh andbra16
+ssh: Could not resolve hostname andbra16: nodename nor servname provided, or not known
+andbra16@ccm-2610-c3:~$ ssh andbra16@ada.evergreen.edu
+andbra16@ada.evergreen.edu's password: 
+                                                                      
+                                                                      
+                                                                      
+    #                  :##:    #####:      :##:                 #     
+    #                   ##     #######      ##                  #     
+ #  #  #               ####    ##  :##:    ####              #  #  #  
+ . ### .               ####    ##   :##    ####              . ### .  
+ . ### .              :#  #:   ##   .##   :#  #:             . ### .  
+ #  #  #               #::#    ##    ##    #::#              #  #  #  
+    #                 ##  ##   ##    ##   ##  ##                #     
+    #                 ######   ##   .##   ######                #     
+                     .######.  ##   :##  .######.                     
+                     :##  ##:  ##  :##:  :##  ##:                     
+                     ###  ###  #######   ###  ###                     
+                     ##:  :##  #####:    ##:  :##                     
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+
+Ada is a public server. Please be courteous with your usage of resources.
+
+		"Be Excellent to eachother!"
+
+				-- Abraham Lincoln
+
+etTest.lhs - Set Module tests
+
+Linux ada 3.2.0-0.bpo.2-amd64 #1 SMP Fri Jun 29 20:42:29 UTC 2012 x86_64
+
+Last login: Tue Nov 18 10:07:08 2014 from ccm-2610-c3.evergreen.edu
+andbra16@ada:~$ cd cnc
+andbra16@ada:cnc$ ls
+ai  formalLang  haskell  myClite  progLag  softwarestudents
+andbra16@ada:cnc$ cd haskell
+andbra16@ada:haskell$ ghci
+GHCi, version 6.12.1: http://www.haskell.org/ghc/  :? for help
+Loading package ghc-prim ... linking ... done.
+Loading package integer-gmp ... linking ... done.
+Loading package base ... linking ... done.
+Prelude> :t length
+length :: [a] -> Int
+Prelude> q
+
+<interactive>:1:0: Not in scope: `q'
+Prelude> :q
+Leaving GHCi.
+andbra16@ada:haskell$ ls
+FirstScript.hs  hw2.hs  hw4.hs  lab2.hs  lab4.hs  midterm.hs
+hw1.hs          hw3.hs  hw5.hs  lab3.hs  lab5.hs
+andbra16@ada:haskell$ vi setTest.lhs
+andbra16@ada:haskell$ ghci
+GHCi, version 6.12.1: http://www.haskell.org/ghc/  :? for help
+Loading package ghc-prim ... linking ... done.
+Loading package integer-gmp ... linking ... done.
+Loading package base ... linking ... done.
+Prelude> test1_whatfun
+
+<interactive>:1:0: Not in scope: `test1_whatfun'
+Prelude> :l lab7.hs
+
+<no location info>: can't find file: lab7.hs
+Failed, modules loaded: none.
+Prelude> :l lab7.lhs
+[1 of 1] Compiling Main             ( lab7.lhs, interpreted )
+Ok, modules loaded: Main.
+*Main> test1_whatfun
+False
+*Main> test2_whatfun
+True
+*Main> :t length
+length :: [a] -> Int
+*Main> :t enc
+enc :: (Eq a) => [a] -> [(Int, a)]
+*Main> [1,2,4] = [4,2,1]
+
+<interactive>:1:8: parse error on input `='
+*Main> [1,2,4] == [4,2,1]
+False
+*Main> [1,2,4] == [1,2,6]
+False
+*Main> [1,2,4] == [1,2,4]
+True
+*Main> :l SetUL.hs
+[1 of 1] Compiling SetUL            ( SetUL.hs, interpreted )
+
+SetUL.hs:11:0:
+    The equation(s) for `null' have two arguments,
+    but its type `Set a -> Bool' has only one
+Failed, modules loaded: none.
+Prelude> :l SetUL.hs
+[1 of 1] Compiling SetUL            ( SetUL.hs, interpreted )
+
+SetUL.hs:1:25: Not in scope: `member'
+
+SetUL.hs:1:33: Not in scope: `empty'
+
+SetUL.hs:1:40: Not in scope: `fromList'
+
+SetUL.hs:1:50: Not in scope: `toList'
+
+SetUL.hs:1:58: Not in scope: `insert'
+
+SetUL.hs:1:66: Not in scope: `delete'
+Failed, modules loaded: none.
+Prelude> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> null Set [1]
+
+<interactive>:1:0:
+    Ambiguous occurrence `null'
+    It could refer to either `Main.null', defined at SetUL.hs:11:0
+                          or `Prelude.null', imported from Prelude
+*Main> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> null Set [1]
+
+<interactive>:1:5:
+    Couldn't match expected type `Set a'
+           against inferred type `[a1] -> Set a1'
+    In the first argument of `null', namely `Set'
+    In the expression: null Set [1]
+    In the definition of `it': it = null Set [1]
+*Main> null (Set [1])
+False
+*Main> null (Set [])
+True
+*Main> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+
+SetUL.hs:15:23:
+    Couldn't match expected type `[a]' against inferred type `Set a'
+    In the second argument of `elem', namely `ys'
+    In the expression: x `elem` ys
+    In the definition of `member': member x ys = x `elem` ys
+Failed, modules loaded: none.
+Prelude> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> member 1 [1,2,4]
+
+<interactive>:1:9:
+    Couldn't match expected type `Set t' against inferred type `[a]'
+    In the second argument of `member', namely `[1, 2, 4]'
+    In the expression: member 1 [1, 2, 4]
+    In the definition of `it': it = member 1 [1, 2, 4]
+*Main> member 1 (Set [1,2,4])
+True
+*Main> empty
+
+<interactive>:1:0: Not in scope: `empty'
+*Main> empty []
+
+<interactive>:1:0: Not in scope: `empty'
+*Main> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> empty
+
+<interactive>:1:0:
+    No instance for (Show (Set a))
+      arising from a use of `print' at <interactive>:1:0-4
+    Possible fix: add an instance declaration for (Show (Set a))
+    In a stmt of a 'do' expression: print it
+*Main> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+
+SetUL.hs:18:8:
+    Couldn't match expected type `Set a' against inferred type `[a1]'
+    In the expression: []
+    In the definition of `empty': empty = []
+Failed, modules loaded: none.
+Prelude> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+
+SetUL.hs:10:14:
+    `Set' is not applied to enough type arguments
+    The first argument of `Show' should have kind `*',
+    but `Set' has kind `* -> *'
+    In the instance declaration for `Show Set'
+Failed, modules loaded: none.
+Prelude> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+
+SetUL.hs:10:9:
+    `Show' is applied to too many type arguments
+    In the instance declaration for `Show Set [a]'
+Failed, modules loaded: none.
+Prelude> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+
+SetUL.hs:10:0:
+    Illegal instance declaration for `Show (Set [a])'
+        (All instance types must be of the form (T a1 ... an)
+         where a1 ... an are type *variables*,
+         and each type variable appears at most once in the instance head.
+         Use -XFlexibleInstances if you want to disable this.)
+    In the instance declaration for `Show (Set [a])'
+Failed, modules loaded: none.
+Prelude> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> fromlist [1]
+
+<interactive>:1:0: Not in scope: `fromlist'
+*Main> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> fromList [1]
+
+<interactive>:1:0:
+    No instance for (Show (Set t))
+      arising from a use of `print' at <interactive>:1:0-11
+    Possible fix: add an instance declaration for (Show (Set t))
+    In a stmt of a 'do' expression: print it
+*Main> :q
+Leaving GHCi.
+andbra16@ada:haskell$ ghci
+GHCi, version 6.12.1: http://www.haskell.org/ghc/  :? for help
+Loading package ghc-prim ... linking ... done.
+Loading package integer-gmp ... linking ... done.
+Loading package base ... linking ... done.
+Prelude> :t insert
+
+<interactive>:1:0: Not in scope: `insert'
+Prelude> :l hw1.hs
+[1 of 1] Compiling Main             ( hw1.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> :t Set
+
+<interactive>:1:0: Not in scope: data constructor `Set'
+*Main> null (1,2,3)
+
+<interactive>:1:0:
+    Ambiguous occurrence `null'
+    It could refer to either `Prelude.null', imported from Prelude
+                          or `Data.Set.null', imported from Data.Set at hw1.hs:4:0-14
+*Main> size (1,2,4)
+
+<interactive>:1:5:
+    Couldn't match expected type `Set a'
+           against inferred type `(t, t1, t2)'
+    In the first argument of `size', namely `(1, 2, 4)'
+    In the expression: size (1, 2, 4)
+    In the definition of `it': it = size (1, 2, 4)
+*Main> size (Set [1,2,4,5])
+
+<interactive>:1:6: Not in scope: data constructor `Set'
+*Main> :t Set
+
+<interactive>:1:0: Not in scope: data constructor `Set'
+*Main> size [1,2,4,5]
+
+<interactive>:1:5:
+    Couldn't match expected type `Set a' against inferred type `[a1]'
+    In the first argument of `size', namely `[1, 2, 4, 5]'
+    In the expression: size [1, 2, 4, 5]
+    In the definition of `it': it = size [1, 2, 4, ....]
+*Main> not (1 `elem` [1,2,4])
+False
+*Main> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+
+SetUL.hs:30:19:
+    Couldn't match expected type `Set a' against inferred type `[a]'
+    In the expression: y ++ x
+    In the definition of `insert': insert x (Set y) = y ++ x
+
+SetUL.hs:33:20:
+    Couldn't match expected type `Set a' against inferred type `[a1]'
+    In the expression: [a | a <- ys, not (x `elem` ys)]
+    In the definition of `delete':
+        delete x (Set ys) = [a | a <- ys, not (x `elem` ys)]
+Failed, modules loaded: none.
+Prelude> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+
+SetUL.hs:30:19:
+    Couldn't match expected type `Set a' against inferred type `[a]'
+    In the expression: y ++ x
+    In the definition of `insert': insert x (Set y) = y ++ x
+Failed, modules loaded: none.
+Prelude> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+
+SetUL.hs:30:0:
+    Occurs check: cannot construct the infinite type: a = [a]
+    When generalising the type(s) for `insert'
+Failed, modules loaded: none.
+Prelude> [1,2,4] ++ 6
+
+<interactive>:1:11:
+    No instance for (Num [t])
+      arising from the literal `6' at <interactive>:1:11
+    Possible fix: add an instance declaration for (Num [t])
+    In the second argument of `(++)', namely `6'
+    In the expression: [1, 2, 4] ++ 6
+    In the definition of `it': it = [1, 2, 4] ++ 6
+Prelude> [1,2,4] ++ [6]
+[1,2,4,6]
+Prelude> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> :l setTest.lhs
+[1 of 1] Compiling Main             ( setTest.lhs, interpreted )
+Ok, modules loaded: Main.
+*Main> s1
+Loading package array-0.3.0.0 ... linking ... done.
+Loading package containers-0.3.0.0 ... linking ... done.
+fromList [1,2,3,4,5]
+*Main> s2
+fromList [1,2,3,5]
+*Main> s3
+fromList [1,2,3,5,7]
+*Main> s4
+fromList [1,2,3,5,7]
+*Main> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+
+SetUL.hs:16:0: parse error (possibly incorrect indentation)
+Failed, modules loaded: none.
+Prelude> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> rmd [1,2,4,1,4,5,1]
+[]
+*Main> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> rmd [1,2,4,1,4,5,1]
+[]
+*Main> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> rmd [1,2,4,1,4,5,1]
+[]
+*Main> rmd []
+[]
+*Main> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> rmd [1,2,4,1,4,5,1]
+
+<interactive>:1:15:
+    No instance for (Num (([a] -> [a] -> [a]) -> t))
+      arising from the literal `5' at <interactive>:1:15
+    Possible fix:
+      add an instance declaration for (Num (([a] -> [a] -> [a]) -> t))
+    In the expression: 5
+    In the first argument of `rmd', namely `[1, 2, 4, 1, ....]'
+    In the expression: rmd [1, 2, 4, 1, ....]
+*Main> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> delete 1 (Set [1,2,4,5])
+
+<interactive>:1:0:
+    No instance for (Show (Set t))
+      arising from a use of `print' at <interactive>:1:0-23
+    Possible fix: add an instance declaration for (Show (Set t))
+    In a stmt of a 'do' expression: print it
+*Main> toList(delete 1 (Set [1,2,4,5]))
+[]
+*Main> toList(delete 1 (Set [2,4,5,1]))
+[]
+*Main> toList(delete 1 (Set [2,4,1,5]))
+[]
+*Main> :l SetUL.hs
+[1 of 1] Compiling Main             ( SetUL.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> toList(delete 1 (Set [2,4,5,1]))
+[2,4,5]
+*Main> toList(delete 1 (Set [1,2,4,5]))
+[2,4,5]
+*Main> :l SetUL.hs
+            printBoard();
+            return;
+        }
+        //place queen
+        for (int i = 0; i < this.size; i++) {
+            queenPlaceInRow[row] = i;
+            //check if queens conflict 
+            if (check(row)) {
+                placeQueen(row + 1);
+            }
+        }
+
+    }
+
+    private boolean check(int row) {
+        for (int i = 0; i < row; i++) {
+            int diffX = Math.abs(queenPlaceInRow[row] - queenPlaceInRow[i]);
+            int diffY = row - i;
+            if (diffX == 0 || diffX == diffY) {
+                return false;
+            }
+        }
+        return true;
+                                                              31,1          56%

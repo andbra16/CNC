@@ -1,0 +1,74 @@
+3.10)
+
+a)
+Float   -> Integer . Integer
+Integer -> (0|...|9) | (0|...|9 Integer)
+
+b)
+(0|...|9)+.(0|...|9)+
+
+c)
+Integer ---> . ---> Integer ---> End
+  ^      |             ^     |
+  |  <---|             | <---|
+
+
+3.16)
+
+a)
+S -> a$ | T
+T -> T,S | S | T
+
+b) First(S) = {a | T,S | S}
+   First (T) = {T,S | S}
+
+4.1)
+Python:
+a) Variables must be declared before they are used.
+b) You may overload operators with your own defined types.
+c) Array size is dynamic and is bound at run-time.
+d) Scope is defined by indentation.
+e) Declaration can appear anywhere within a block as long as the no forward reference rule is not violated.
+
+4.2)
+
+a) They can be accessed in other compilation units by simple calling the global variable name
+
+b) They can be hidden from other compilation units by creating a local variable of the same name as the global.
+
+c) You may want to hide global variables because you may need to use the global variable name for some other value at some point.
+
+4.3)
+Declaration is when you create a variable but you don't give it a value (you only create the name and type). For example: String fruit;
+
+Definition: Defining a variable is when you assign a value to it. Since we declared fruit above we can now define it. For example: fruit = "Apple";
+Or we could define a new variable: String vegetable = "Carrot";
+
+4.5)
+
+a) Types alone cannot be used to distinguish such a duplication because of the built in use of overloading operators in most langauges. For example, lets assume we can make two variables with the same name, but different types.
+int a = 1;
+String a = "One";
+
+Now, lets use the variable a.
+
+String blah = "Hellow" + a;
+
+Because of overloading the "+" operator can be used on both the int a and the String a. So, the program could use both a's, which means the program doesn't know which a to use based on Type alone.
+
+b) When you overload an operator, you are specifying exactly the case in which it should be used. Therefore, there is no ambiguity and a restriction on overloading is not needed.
+
+4.6)
+r-values that can't be l-values:
+3 = n;
+True = False;
+3.5 = 3.2;
+
+l-values:
+n = 3;
+blah = "blah"
+color c = green
+
+Yes, there are l-values that cannot be r-values. Assume you have a variable that is: String b = "blah"; The l-value b cannot become the r-value 3. blah = 3;would give you an error. So, l-values are constrained to the types they are assigned.
+
+

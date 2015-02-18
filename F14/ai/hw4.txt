@@ -1,0 +1,76 @@
+3) a) P(a|b,c) = 
+
+4)
+
+P(A) = a + b = 0.4
+P(B) = a + c = 0.3
+P(A V B) = a + b + c = 0.5
+P(True) = a + b + c + d
+
+a = 0.2, b = 0.2, c = 0.1, d = 0.5
+
+5)
+
+7)
+ 
+a) P(52/5) = (52*51*50...)/(5*4*3...) = 2,598,960 possible five-card hands
+
+b) 1/2,598,960
+
+c) royal straight flush = 4/2,598,960 = 1/649,740
+   4 of a kind = (13 * 48)/2,598,960 = 1/4,165
+
+8) 
+
+a) P(toothache) = 0.108 + 0.012 + 0.016 + 0.064 = 0.2
+
+b) 0.108 + 0.012 + 0.072 + 0.008 = 0.2
+   P(Cavity) = (0.2,0.8)
+
+c) P(Toothache|cavity) = ((0.108+0.012)/0.2,(0.072+0.008)/0.2) = (0.6,0.4)
+
+d) P(toothache V catch) = 0.108 + 0.012 + 0.016 + 0.064 + 0.072 + 0.144 = 0.416 
+
+P(Cavity|toothache V catch) = ((0.108+0.012+0.072)/0.416,
+							(0.016 + 0.064 + 0.144)/0.416 = (0.4615,0.5384)
+
+9) sum (k=0 to s-1) (r+s-1/k) to sum (k=s to r+s-1) (r+s-1/k)
+
+13) 
+
+test A: Pos = 95%          False Neg = 5%
+		False Pos = 10%    Negative = 90%
+
+yes answers: 1% * 95% = 0.95%
+			 99% * 10% = 9.9 %
+		     0.95% + 9.9% = 10.85%
+			 
+            0.95%/10.85% = 8.756% actually has virus
+
+test B: Pos = 90%          False Neg = 10%
+		False Pos = 5%     Negative = 95%
+
+yes answers: 1% * 90% = 0.9%
+			 99% * 5% = 4.95%
+			 0.9% + 4.95% = 5.85%
+
+			0.9%/5.85% = 15.38% actually has virus
+
+Test B is more indicative of someone actually carrying the virus
+
+18) 
+
+a) n ways to pick coin. 2 outcomes for each flip. 2n atomic events
+   2+(n-1) ways to get heads. P(fake|heads) = 2/(2+n-1) = 2/(n+1)
+
+b)(2^k)n atomic events. 2^k for fake coin and (2^k)+(n-1) result in heads.
+P(fake|heads^k) = (2^k)/((2^k)+(n-1))
+
+c)Case 1: A fair coin might turn up heads k times in a row which is the probability of (1/(2^k)) and the probability of the fair coin being chosen is (n-1)/n
+
+Case 2: The fake coin is chosen which is a probability of 1/n. 
+
+	Total prob of error is: [(n-1)/)(2^k+1)]/n
+
+
+

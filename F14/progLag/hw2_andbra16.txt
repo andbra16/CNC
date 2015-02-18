@@ -1,0 +1,99 @@
+1.1
+
+a) Eiffel is an ISO-standardized, object-oriented programming language. Some key                characteristics of Eiffel are that it has automatic memory management has inheritance, and      static typing. Many of its concepts were later found in Java, and C#.
+
+b) Perl is a family of  high-level, general-purpose, interpreted, dynamic program languages.    Perl's languages include Perl 5 and Perl 6. Perl borrows features from other programming        languages such as C, sh, AWK, and sed. Perl 5 is used for graphics programming, system          administration, network programming, finance, bioinformatic, and other apps.
+
+c) Python is a widely used general-purpose, high-level programming language. Its design         emphasizes code readbility, and its syntax allows programmers to code in fewer lines than would be possible in languages like C. Python has typed objects but untyped variable names.
+
+1.2
+
+Java:
+y += 3
+
+y = y + 3
+
+2.1
+
+Integer -> Integer Digit
+		   Integer Digit Digit
+		   Integer Digit Digit Digit
+		   Digit Digit Digit Digit
+		   4 Digit Digit Digit
+		   4 5 Digit Digit
+		   4 5 2 Digit
+		   4 5 2 0
+
+8 steps were required for this derivation. To derive a number of d digits you would need: steps = 2*d
+
+2.2
+
+Integer -> Integer Digit
+		   Integer 0
+		   Integer Digit 0
+		   Integer 2 0
+		   Integer Digit 2 0
+		   Integer 5 2 0
+		   Digit 5 2 0
+		   4 5 2 0
+
+2.3
+
+Primary -> Identifier
+		   Letter Digit Letter
+		   a Digit Letter
+           a 2 Letter
+		   a 2 i
+
+2.4
+
+Primary -> Identifier
+		   Letter Digit Letter
+		   Letter Digit i
+		   Letter 2 i
+		   a 2 i
+
+2.6
+
+a)  				Expr
+				 
+		Expr		 *			Term
+
+Expr	 +	 Term				 3
+
+Term		  4
+
+5
+
+b)  				Expr
+
+		Expr		 +		 	Term
+
+Expr	 *	 Term				 3
+
+Term		  4
+
+5
+
+2.7
+
+a)  			Expr
+
+	Term		 +		  	Expr
+	 
+	 5				Term	 *		Expr
+
+					 4				Term
+
+									 3
+
+b)  			Expr
+
+	Term		 *			Expr
+
+	 5				Term	 +		Expr
+
+					 4				Term
+
+									 3
+

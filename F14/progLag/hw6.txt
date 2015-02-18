@@ -1,0 +1,55 @@
+6.4) 
+
+a)f(int) =(int) - 3(int)
+
+b)f(float) =(float) - 3.5(float)
+
+c)i(int) =(int) - 2(int)
+
+d)i(float) =(float) - 2.5(float)
+
+e)f(float) =(float) c(int)
+
+f)i(float) =(float) c(int)
+
+g)i(float) =(float) i(float) +(float) 1(int)
+
+h)i(float) =(float) i(float) +(float) c(int)
+
+i)f(float) =(float) f(float) +(float) i(float)
+
+j) 
+
+k)
+
+l)
+
+6.6)
+else if (ttype == Type.CHAR) {
+	if (srctype == Type.INT) {
+		src = new Unary(new Operator(Operator.I2C), src);
+		srctype = Type.CHAR;
+	}
+}
+
+else if (ttype == Type.FLOAT) {
+	if (srctype == Type.INT) {
+		src = new Unary(new Operator(Operator.F2I), src);
+		srctype = Type.INT;
+	}
+}
+
+6.9)
+
+6.10)
+= s.target E tm ^ V(s.source, tm)
+V(tm(s.target) = char ^ typeOf(s.source, tm) E {char,int})
+V(tm(s.target) = int ^ typeOf(s.source, tm) E {int,float})
+
+6.11) 
+An ArrayRef is valid if all the following are true:
+	a) If its id appears in the type map.
+	b) Its Expression index is valid.
+
+6.12)
+If the Expression is a VariableRef, then its result type of that ArrayRef.

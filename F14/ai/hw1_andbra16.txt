@@ -1,0 +1,38 @@
+1) I don't believe I have a full grasp on the rules of this AI situation so I'll try to explain with the best of my abilities the reasoning behind my choices to program this vaccum.
+
+i) Step 1: Check if room is Clean/Dirty. Suck if the room is dirty, and if the vacuum sucks increment a count variable by 1. Now once the room is cleaned or if the room was already clean, the vacuum must move to the next room. The problem is the vacuum doesn't know which room it is in. So an arbitrary choice of where to move must be made. I choose to have the vacuum move right.
+
+  Step 2: Now the vacuum has moved right to the next room, or the vaccum is still in the same room (the vaccum doesn't know). So the vacuum must check if the room is Clean/Dirty again. Suck if the room is dirty and increment count variable by 1 if it sucks. Now the vacuum either started in room B and is still in room B, or it started in room A and is now in Room B. There is no way to tell if the vacuum moved to both rooms, unless both rooms were dirty. So if both rooms were dirty and the vacuum moved into both rooms the count variable = 2. In this case, halt the vacuum. 
+
+But, one room could've been clean and the other one dirty so the vaccum visited both rooms and count variable = 1. In this case we don't know if both rooms were visited or not. So, we have to cover our asses. All we know now is the the vaccum moved right in step 1. So, now we have to move left.
+
+Step 3: The vacuum now moved left. Since, the vacuum has now moved right and left, both rooms have been covered. It either started in B moved right and failed to move, and then moved left into A, or it started in A moved right into B, and back into left again. So, now the vacuum should suck if the room is dirty. Since, we know that both room must have been covered the vacuum should halt.
+
+Performance measure: 
+Case 1 (A: Clean B: Clean): 2 -0.5 2 -0.5 = 3
+Case 2 (A: Dirty B: Dirty): 1 -0.5 2 2 = 4.5
+Case 3 (A: Clean B: Dirty): 1 -0.5 2 -0.5 = 2
+Case 4 (A: Dirty B: Clean): 2 -0.5 2 -0.5 = 3
+
+ii) Since, a simple reflex agent cant keep track of the things that it does, I will use the instructions I gave the vaccum above without the suck counting variable. These simple instructions ensure that the vaccum has visited both rooms with the fewest amount of moves.
+
+Step 1: Suck if room is Dirty. Else move right.
+Step 2: Suck if room is Dirty. Else move left.
+Step 3: Suck if room is Dirty. Else halt.
+
+Performance measure:
+Case 1 (A: Clean B: Clean): 2 -0.5 2 -0.5 = 3
+Case 2 (A: Dirty B: Dirty): 1 -0.5 2 -0.5 = 2
+Case 3 (A: Clean B: Dirty): 1 -0.5 2 -0.5 = 2
+Case 4 (A: Dirty B: Clean): 2 -0.5 2 -0.5 = 3
+
+2) an artificial intelligence approach to cognition in which multiple connections between nodes (equivalent to brain cells) form a massive interactive network in which many processes take place simultaneously. Certain processes in this network, operating in parallel, are grouped together in hierarchies that bring about results such as thought or action.
+
+3) an autonomous entity which observes through sensors and acts upon an environment using actuators and directs its activity towards achieving goals.
+
+4) 
+1.15 - The initial DARPA Grand Challenge was created to spur the development of technologies needed to create the first fully autonomous ground vehicles capable of completing a substantial off-road course within a limited time. The third event, the DARPA Urban Challenge extended the initial Challenge to autonomous operation in a mock urban environment. The most recent Challenge, the 2012 DARPA Robotics Challenge, focused on autonomous emergency-maintenance robots. DARPA has advanced the technology for autonomous robotics.
+
+2.1 - If a performance measure is concerned with just the first T time steps of the enviroment, the actions of the rational agent would greatly change. Suppose that the performance measure is concerned with just the first two time steps.
+Say you have 4 rooms, (A:Clean B:Dirty C:Clean D:Dirty). Now, the best performance measure would be for the vacuum to get to room B and clean it and halt. This is because it could clean room B before the second time step, to maximize its points, but it wouldn't be able to reach C before the 2nd time stop. So, if the vacuum went to C it would start losing points and not gaining any for its efforts. Therefore, the rational agent's actions wouldn't just depend on the state of the environment, they would also depend on the time step it has reached.  
+

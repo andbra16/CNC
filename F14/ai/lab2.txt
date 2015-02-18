@@ -1,0 +1,106 @@
+mport java.util.Random;
+
+int LEFT = 0;
+int RIGHT = 1;
+int location = 0;
+float score = 0;
+boolean[] state = new boolean[2];
+
+boolean DIRTY = true;
+boolean CLEAN = false;
+
+color RED = color(255, 0, 0);
+color GREEN = color(0, 255, 0);
+color WHITE = color(255, 255, 255);
+color c;
+
+Random randomGenerator = new Random();
+
+void setup() {
+  size(320, 240);
+  noLoop();
+  frameRate(1);
+  int rand1 = randomGenerator.nextInt(2);
+  if (rand1 == 0) {
+    state[0] = DIRTY;
+  } else {
+    state[0] = CLEAN;
+    score++;
+  }
+  int rand2 = randomGenerator.nextInt(2);
+  if (rand2 == 0) {
+    state[1] = DIRTY;
+  } else {
+    state[1] = CLEAN;
+    score++;
+  }
+}
+
+void draw(){ 
+  println(frameCount);
+  println("Score: " + score);
+  if (state[0]) {  //dirty
+    fill(RED);
+  } else {
+    fill(GREEN); 
+    score++;
+  }
+  rect(50, 50, 100, 100);  //LEFT
+  if (state[1]) {
+    fill(RED);
+  } else { 
+    fill(GREEN);
+    score++; 
+  }
+  rect(150, 50, 100, 100);  //RIGHT
+  
+  fill(WHITE);
+  int rand3 = randomGenerator.nextInt(2);
+  if (rand3 == 0) {
+    ellipse(100, 100, 25, 25);
+  } else {
+    ellipse(200, 100, 25, 25);
+  }
+  
+  agent();
+} // else move random, what is the expected number of moves?
+
+void Left() {
+ location =  0;
+}
+
+void Right() {
+   location = 1; 
+}
+
+void Suck() {
+  score++;
+  state[location] = CLEAN;
+  fill(GREEN);
+}
+
+void agent() {
+
+  // rules
+  if (state[location] == DIRTY) {
+     Suck(); 
+  } else if (frameCount%2==0) {
+    Right();
+    score = score - 0.5;
+  } else {
+    Left();
+    score = score - 0.5;
+  }
+
+  //} else if (location == LEFT) {Right();}
+    //else Left();
+
+}
+
+void mousePressed(){
+ loop(); 
+}
+
+void mouseReleased(){
+ noLoop(); 
+}

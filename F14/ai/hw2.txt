@@ -1,0 +1,51 @@
+1) Step 1: If room is Dirty then suck.
+   
+   Step 2: Once the first room has been checked, move right. Check if the room is dirty and if it is then suck.
+
+  Step 3: To ensure we have checked every room, move left. Check if the room is dirty and if it is then suck.
+
+  Step 4: Now it is guaranteed that we have been to every room. But, the rooms have a 0.10 probability of becoming dirty again, so lets add a 0.10 probability for our vacuum to move right or left now.
+
+Performance measure:
+There are more than 4 cases for this enviroment, because every time step a room has a chance to become dirty again. I drew a chart out on paper of the cases and chances of rooms turning dirty again, but it would take too long and would probably look terrible if I attempted to type set it.
+
+2.1) If a performance measure is concerned with just the first T time steps of the enviroment, the actions of the rational agent would greatly change. Suppose that the performance measure is concerned with just the first two time steps.
+Say you have 4 rooms, (A:Clean B:Dirty C:Clean D:Dirty), and you start in room A. Now, the best performance measure would be for the vacuum to get to room B and clean it and halt. This is because it could clean room B before the second time step to maximize its points, but it wouldn't be able to reach C before the 2nd time stop. So, if the vacuum went to C it would start losing points and not gaining any for its efforts. Therefore, the rational agent's actions wouldn't just depend on the state of the environment, they would also depend on the time step it has reached.
+
+3.14) 
+
+a) False, The A* search is a complete search while the depth-first search is not.
+
+b) False, because this heuristic only satisfies the condition of goal states for the 8 puzzle.
+
+c) False, because there must always be a goal in robotics, which means A* can be used to search for that goal state.
+
+d) True
+
+e) False, Manhattan distance can't account for another piece blocking the rook's vertical or horizontal move.
+
+3.15)
+
+a) L1:                          1
+   L2:                   2                  3
+   L3:               4        5         6         7
+   L4:              8 9     10 11     12 13     14 15
+
+b) BFS: 1,2,3,4,5,6,7,8,9,10,11
+   DLS: 1,2,3,4,5,6,7
+   IDS: 1,2,3,4,5,6,7,8,9,10,11
+
+c) I don't really understand the bi-directional search...
+
+d) 
+
+e)
+
+
+3.21)
+
+a) False, a breadth first search searches depth by depth, a uniform cost search can search depths out of order depending on the cost to get to that depth.
+
+b) False, the best-first search tree will expand the node closest to the goal, while the depth-first search will simply expand the deepest node.
+
+c) True, the uniform cost search expands the node n with the lowest path cost, and the A* search evaluates both the cost to reach the node and the cost to get from the node to the goal.

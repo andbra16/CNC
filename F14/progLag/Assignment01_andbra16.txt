@@ -1,0 +1,39 @@
+1.1
+
+a) Eiffel is an ISO-standardized, object-oriented programming language. Some key characteristics of Eiffel are that it has automatic memory management has inheritance, and static typing. Many of its concepts were later found in Java, and C#.
+
+b) Perl is a family of  high-level, general-purpose, interpreted, dynamic program languages. Perl's languages include Perl 5 and Perl 6. Perl borrows features from other programming languages such as C, sh, AWK, and sed. Perl 5 is used for graphics programming, system administration, network programming, finance, bioinformatic, and other apps.
+
+c) Python is a widely used general-purpose, high-level programming language. Its design emphasizes code readbility, and its syntax allows programmers to code in fewer lines than would be possible in languages like C. Python has typed objects but untyped variable names. 
+
+1.2
+
+y += 3
+
+y = y + 3
+
+1.3
+
+a) Algol introduced code blocks and the begin and end pairs for delimiting them. It was also the first language to implement nested function definitions with lexical scope. Most importantly algol gave serious attention to formal language defintion and introduced the Backus-Naur form.
+
+b) What Flon means by his last statement is that no programming language will ever be perfect. Some programming languages will be better at doing some things while others will be better at other things. In the end, a well written program depends upon the user. It is possible to write sloppy, unclear code in any language. Python might be shorter, and therefore clearer for the someone to read, but this same aspect could make Python harder to read. For example, you don't have to name the variable type in Python, so what if the programmer makes lousy variable names? This would probably make finding out what the variables are much harder whereas in Java the variable has to be given a type and a bad variable name might not be so detrimental. 
+
+1.4 
+
+1.10
+
+Java vs Python
+
+Simplicity and Readability - Python wins this one in my opinion. Python's coding philosphy was built upon beauty, simplicity and readability. It can be one of the most concise and clear languages to read.
+
+Clarity about binding - Because Python is weakly typed, Java wins this case. Python's variables can be very unclear at times as to whether they are ints, floats, strings, and etc.
+
+Reliability - Java wins this. The JVM was designed to be able to run on any platform the in the same way.
+
+Support - Tie. Python and Java are both widely used and have countless sources for learning and getting help about the languages.
+
+Abstraction - Tie. Java and Python both have equal libraries and packages to enhance the coding experience.
+
+Orthogonality -
+
+Efficient Implementation - Java wins this. Any device that can run the JVM can run a java application, whereas to run python you need a compiler that can convert the python code into code that your OS can understand. 

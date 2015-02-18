@@ -1,0 +1,25 @@
+3.26)
+a) the branching factor is 4
+
+b)4^k distinct states
+
+c)b^d nodes
+
+d)b^(d-1)
+
+e) Yes, it is an admissible heuristic because it is a function of the distance from the goal state.
+
+f) all nodes with f(n)<C*
+
+g) No, h doesn't remain admissible because the function would be overestimating the cost to the goal state.
+
+h) Yes, becuase h would simply be underestimating the cost to a goal state and it would soon figure that out.
+
+3.31) The misplaced-tiles heuristic is exact for the problem where a tile can move from square A to square B. As this is a relaxation of the condition that a tile can move from square A to square B if B is blank, Gaschnig’s heuristic cannot be less than the misplaced-tiles heuristic. As it is also admissible (being exact for a relaxation of the original problem), Gaschnig’s heuristic is therefore more accurate. 
+
+To compute Gaschnig’s heuristic, repeat the following until the goal state is reached: let B be the current location of the blank; if B is occupied by tile X (not the blank) in the goal state, move X to B; otherwise, move any misplaced tile to B.
+
+4.2)
+Make the railway tracks goal be to get to the goal point in the shortest amount of track, but the point is in a straight line from the start. The railway tracks can be laid down so that they are always at a 10 degree angle. So, the track will have to weave from one direction to the other to get to the goal in a straight line. Simulated annealing can be used to shake the tracks direction up to keep it in a straight line.
+
+4.4)
