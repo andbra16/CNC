@@ -1,0 +1,17 @@
+1) (1/n) * S(Xi - X)^2 = (1/n) * S(Xi^2) - X^2
+	(1/n) * S(Xi^2 -2XiX + X^2)
+	(1/n * S(Xi^2)) - S(2XiX)/n + S(X^2)/n
+	(1/n * S(Xi^2)) - 2X(S(Xi))/n + S(X^2)/n
+	(1/n * S(Xi^2)) - 2X^2 + S(X^2)/n
+	(1/n * S(Xi^2) - 2X^2 + X^2)
+	(1/n * S(Xi^2) - X^2
+
+2) Cov(x,y) = (S(Xi-X)(Yi-Y))/n
+	S(XiYi - YXi - XYi + XY)/n
+	XY * S(XiYi - YXi - XYi)/n
+	XY/n * S(XiYi)/n - S(YXi)/n - S(XYi)/n
+	XY/n * (XY - (Y*S(Xi)/n) -(X*S(Yi)/n)
+
+	Covariance gets bigger, the more similiar the two variables are.
+
+	(1/n) * S(Xi-Yi)^2 gets bigger, the less similar the two variables are.

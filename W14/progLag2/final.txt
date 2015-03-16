@@ -1,0 +1,152 @@
+Dequeues
+
+1) What is the representation type for the dequeue?
+
+The dequeue is comprised of 4 lists.
+
+2) What does your queue look like after the following insertions and deletions:
+insertL 1, insertL 2, insertL 3, insertR 4, insertR 5, removeL, removeR
+
+insertL 1 = Quad [1] [] [] []
+
+Quad [2:1] [] [] []
+makedq --> n = 1, l = 2, r = 0
+(take n l) = [2]
+rot1 (n,[2,1],[]) = [1]
+insertL 2 = Quad [2] [1] [2] [1]
+
+Quad [3:2] [1] [2] [1]
+makedq --> n = 1, l = 2, r = 1
+insertL 3 = Quad [3,2] [1] [] []
+
+Quad [3,2] [4:1] [] []
+makedq --> n = 2, l = 2, r = 2
+insertR 4 = Quad [3,2] [4,1] [] []
+
+Quad [3,2] [5:4:1] [] []
+makedq --> n = 2, l = 2, r = 3
+insertR 5 = Quad [3,2] [5,4,1] [] []
+
+Quad [2] [5,4,1] [] []
+makedq --> n = 2, l = 1, r = 3
+removeL = (3, Quad [2] [5,4,1] [] []
+
+Quad [2] [4,1] [] []
+makedq --> n = 1, l = 1, r =2
+removeR = (5, Quad [2] [4,1] [] [])
+
+3) What does makedq do?
+
+makedq takes things from the l list and puts them in the r list if the l list
+becomes too big. the r list is the back of the queue and the l list is the front of the queue.
+
+4) How does it achieve its O(1) behavior?
+
+it achieves its O(1) behavior because the front and back of the queue never get unbalanced by more than one.
+
+Finger Trees
+
+1) What is the representation for the finger tree
+
+The finger tree is either empty, a single thing, or a Deep followed by a recursive definition of a Fingertree followed by a digit.
+
+a digit is represented as a list
+
+2) Create 4 trees:
+insert on the left 2 and 1
+insert on the right 10 and 11
+remove an element on the right
+create a tree from the list [1 .. 10]
+
+
+insl 2 Empty
+Single 2
+
+insl 1 (Single 2)
+Deep [1] Empty [2]
+
+insr (Deep [1] Empty [2]) 10
+Deep [1] Empty [2,10]
+
+insr (Deep [1] Empty [2,10]) 11
+Deep [1] Empty [2,10,11]
+
+viewR (Deep [1] Empty [2,10,11])
+ConsR 2 (deepR [1] Empty [10,11])
+ConsR 2 (Deep [1] Empty [10,11])
+
+toTree [1..10]
+liftinsl [1..10] Empty
+reducer insl
+insl 1 Empty = Single 1
+insl 2 (Single 1) = Deep [2] Empty [1]
+insl 3 (Deep [2] Empty [1]) = Deep [3,2] Empty [1]
+insl 4 (Deep [3,2] Empty [1]) = Deep [4,3,2] Empty [1]
+insl 5 (Deep [4,3,2] Empty [1]) = Deep [5,4,3,2] Empty [1]
+insl 6 (Deep [5,4,3,2] Empty [1]) = Deep [6,5] (insl (Node3 4 3 2) Empty) [1]
+									Deep [6,5] (Single (Node3 4 3 2)) [1]
+insl 7 (Deep [6,5] (Single (Node3 4 3 2)) [1]) = Deep [7,6,5] (Single (Node3 4 3 2)) [1]
+insl 8 (Deep [7,6,5] (Single (Node3 4 3 2)) [1]) = Deep [8,7,6,5] (Single (Node3 4 3 2)) [1]
+insl 9 (Deep [8,7,6,5] (Single (Node3 4 3 2)) [1]) = Deep [9,8] (insl (Node3 7 6 5) (Single (Node3 4 3 2)) [1]
+
+Deep [9,8] (Deep [Node3 7 6 5] Empty [Node3 4 3 2]) [1]
+
+insl 10 (Deep [9,8] (Deep [Node3 7 6 5] Empty [Node3 4 3 2]) [1]) =
+
+Deep [10,9,8] (Deep [Node3 7 6 5] Empty [Node3 4 3 2]) [1]
+
+
+3) What is the big O of getting a value from the front or the rear?
+
+O(1)
+
+4) Append works by using listinsl on an empty list and a fingertree in the case where one of the trees is empty. If one of the trees are a single append takes out the single value and uses insl on the result of liftinsl and the other tree.If both trees are Deep append makes a node out of the end lists of both trees and does an append on the result.
+
+5)How do finger tree achieve their efficiency?
+
+
+
+red/black trees and avl trees
+
+1) Create an avl tree from the list [1..10]
+
+insert Empty 1
+Br Empty 1 Empty 0, 1
+
+insert (Br Empty 1 Empty 0, 1) 2
+node (Empty, 0) 1 (Br Empty 2 Empty 0, 1) 0, 1
+balance (Br Empty 1 (Br Empty 2 Empty) 0, d' = 0 delta = 0
+
+2) Describe how the rotations occur, what triggers the rotation, and what the resulting tree looks like in terms of the balance factors.
+
+The rotations occur when a new insert is done. The rotation is triggered when a node has a height greater than 1 over the corresponding left or right subtree. To fix this a case check is run to see if a left or right rotation is needed.
+
+3) Create an redblack tree from the list [1..10]
+
+rbinsert 1 RB_E
+RBT B RB_E 1 RB_E
+
+rbinsert 2 (RBT B RB_E 1 RB_E))
+makeRootBlack(ins (RBT B RB_E 1 RB_E) 2)
+balance (RBT B RB_E 1 (ins 2 RB_E))
+balance (RBT B RB_E 1 (RBT R RB_E 2 RB_E))
+makeRootBlack (RBT B RB_E 1 (RBT R RB_E 2 RB_E))
+RBT B RB_E 1 (RBT R RB_E 2 RB_E)
+
+rbinsert 3 (RBT B RB_E 1 (RBT R RB_E 2 RB_E))
+makeRootBlack(ins (RBT B RB_E 1 (RBT R RB_E 2 RB_E)
+balance (RBT B RB_E 1 (ins 3 (RBT R RB_E 2 RB_E)))
+balance (RBT B RB_E 1 (RBT R RB_E 2 (RBT R RB_E 3 RB_E)))
+makeRootBlack (RBT R (RBT B RB_E 1 RB_E) 2 (RBT B RB_E 3 RB_E))
+RBT B (RBT B RB_E 1 RB_E) 2 (RBT B RB_E 3 RB_E)
+
+rbinsert 4 (RBT B (RBT B RB_E 1 RB_E) 2 (RBT B RB_E 3 RB_E))
+RBT B (RBT B RB_E 1 RB_E) 2 (RBT B RB_E 3 (RBT R RB_E 4 RB_E))
+
+4) Desribe how the rotations occur, the color changes, and the rotations.
+
+The rotations occur when a parent node has a subtree with two consecutive red nodes. The rotation occurs on whether a node is left or right heavy and the proper rotation is done for this. Then the parent node becomes red and the children become black.
+
+5) How do the two trees compare in height
+
+The height of an AVL tree is at most 1.44log(N), lower than the maximum height of a red-black tree, 2log(N).

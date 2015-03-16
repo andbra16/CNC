@@ -24,6 +24,8 @@ instance Applicative (Either a) where
 	(Left x) <*> something = Left x
 
 -- 3
+instance Functor ((->) r) where
+	fmap f g = (\x -> f (g x))
 
 instance Pointed [] where
 	pure x = [x]
@@ -219,3 +221,4 @@ ii) Right side
 fmap g ((,)a) . fmap h ((,)a)
 	= ((,)g a) . ((,)h a)
 
+-}

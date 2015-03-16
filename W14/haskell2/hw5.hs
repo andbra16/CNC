@@ -1,3 +1,5 @@
+import Control.Monad.Instances
+
 -- file: evalWithMaybe-skel.hs
 -- Neal Nelson
 -- Skeleton code - this code will not run as-is
@@ -24,9 +26,7 @@ eval (BinOp1 op e1 e2) env = op (eval e1 env) (eval e2 env)
 
 t1 = Val1 3
 t2 = Var1 "a"
-t3 = BinOp1 (+) t1 t2
-
-bigT = eval t3 [("a", 2)]
+t3 = eval (BinOp1 (+) t1 t2) [("a", 2)]
 
 -- b) evaluator with applicative class
 
@@ -69,16 +69,6 @@ evalMRef (BinOp op e1 e2) env =
 						Just v2 -> Just (op v1 v2)
 	
 
-	{-solv op res1 res2 
-		| res1 == Nothing = Nothing
-		| res2 == Nothing = Nothing
-		| otherwise = Just (op res1 res2)
-	res1 = evalMRef e1 env
-	res2 = evalMRef e2 env
--}
---op (evalMRef e1 env) (evalMRef e2 env) 
-
-
 ------------------------------------------------------------------------------
 -- The simple evaluator coded by lifting to the Maybe Functor
 ------------------------------------------------------------------------------
@@ -93,7 +83,7 @@ evalMRef2 :: Expr -> Env -> Maybe Int
 evalMRef2 (Val x) env 	= Just x
 evalMRef2 (Var v) env 	= lookup v env
 evalMRef2 (BinOp op e1 e2) env = solv op res1 res2 where
-	solv op res1 res2 
+	solv op res1 res2
 		| res1 == Nothing = Nothing
 		| res2 == Nothing = Nothing
 		| otherwise = lift2 op res1 res2
@@ -103,6 +93,7 @@ evalMRef2 (BinOp op e1 e2) env = solv op res1 res2 where
 b1 = evalMRef2 (Val 1) []
 b2 = evalMRef2 (Var "a") [("a",5)]
 b3 = evalMRef2 (BinOp (+) (Val 1) (Var "a")) [("a",5)]
+b4 = evalMRef2 (BinOp (+) (Val 1) (Var "a")) []
 
 ------------------------------------------------------------------------------
 -- The simple evaluator coded by using both the Reader and Maybe applicative
@@ -119,8 +110,8 @@ class Functor f => Applicative f where
 
 -- The Reader ((->) r) instance of the Applicative Class for evaluation in an
 -- environment env.
-instance Functor ((->) env) where
-  fmap = (.)
+--instance Functor ((->) env) where
+--  fmap = (.)
 
 instance Applicative ((->) env) where
   pure g = \env -> g
@@ -150,7 +141,7 @@ liftA2 g x y = pure g <*> x <*> y
 evalM :: Expr -> Env -> Maybe Int
 evalM (Val x)          = pure (pure x)
 evalM (Var v)          = lookup v
---evalM (BinOp op e1 e2) = pure op <*> (evalM e1) <*> (evalM e2)
+--evalM (BinOp op e1 e2) = pure ((pure op) <*> (evalM e1) <*> (evalM e2))
 evalM (BinOp op e1 e2) = pure (liftA2 op) <*> (evalM e1) <*> (evalM e2)
 
 ------------------------------------------------------------------------------
