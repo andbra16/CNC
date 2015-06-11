@@ -1,0 +1,23 @@
+1) What problem are they trying to solve? How does the problem manifest itself?
+
+Facebook uses the scripting language PHP. Scripting languages create high 
+programming productivity with their rich set of libraries and their dynamic 
+typing. However, scripting languages take much more CPU time to run than 
+compiled languages. Because Facebook deals with a large scale of users and data,improving server efficiency is a key factor in reducing their operating costs.
+
+2) What is their proposal?
+
+Their proposal was to implement a static compiler for PHP called the HipHop compiler. Compiled languages are much faster than interpreted languages, and if they could create a static compiler for PHP they could increase its performance.
+
+3) How will the proposal solve the problem
+
+The proposal will solve the problem by compiling PHP code into static C++ code.
+Once the PHP code is compiled into the C++ code, it will have been fully optimized and run much faster than the old PHP code. The compile process was broken down into 6 steps. 
+
+1. Parsing - generates AST
+2. Program analysis - collects symbols and their dependencies
+3. Pre-optimizer - performs type-independent optimizations
+4. Type inference - infers primitive types of expressions
+5. Post-optimizer - performs type-dependent optimizations
+6. Code generation - outputs C++ code
+
